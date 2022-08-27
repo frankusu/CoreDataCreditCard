@@ -13,6 +13,7 @@
 		2070238D28B9F267002B03BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2070238C28B9F267002B03BD /* Preview Assets.xcassets */; };
 		2070238F28B9F267002B03BD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070238E28B9F267002B03BD /* Persistence.swift */; };
 		2070239228B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2070239028B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld */; };
+		2070239928B9F42E002B03BD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070239828B9F42E002B03BD /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		2070238C28B9F267002B03BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2070238E28B9F267002B03BD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2070239128B9F267002B03BD /* CoreDataCreditCard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCreditCard.xcdatamodel; sourceTree = "<group>"; };
+		2070239828B9F42E002B03BD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				2070238E28B9F267002B03BD /* Persistence.swift */,
 				2070239028B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld */,
 				2070238B28B9F267002B03BD /* Preview Content */,
+				2070239828B9F42E002B03BD /* MainView.swift */,
 			);
 			path = CoreDataCreditCard;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				2070238F28B9F267002B03BD /* Persistence.swift in Sources */,
 				2070238828B9F265002B03BD /* ContentView.swift in Sources */,
 				2070238628B9F265002B03BD /* CoreDataCreditCardApp.swift in Sources */,
+				2070239928B9F42E002B03BD /* MainView.swift in Sources */,
 				2070239228B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
