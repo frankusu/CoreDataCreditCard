@@ -10,9 +10,11 @@ import SwiftUI
 struct CreditCardView: View {
     @Environment(\.managedObjectContext) var viewContext
     
+    @State private var refreshId = UUID() // force refresh when edit is saved
     var card: Card
     
     @State private var shouldShowActionSheet = false
+    @State private var shouldShowEditSheet = false
     
     private func handleDelete() {
         viewContext.delete(card)
@@ -39,6 +41,7 @@ struct CreditCardView: View {
                         .font(.system(size: 28, weight: .bold))
                 }
                 .confirmationDialog("dodododo", isPresented: $shouldShowActionSheet, actions: {
+                    Button(role: .none, action: { shouldShowEditSheet.toggle()}, label: { Text("Edit")})
                     Button(role: .destructive ,action: { handleDelete() }, label: {
                         Text("Delete Card")
                     })
@@ -46,6 +49,7 @@ struct CreditCardView: View {
                     Text("Credit card \(self.card.name ?? "") will be deleted")
                 })
             }
+            
             
             
             HStack {
@@ -87,6 +91,9 @@ struct CreditCardView: View {
         .shadow(radius: 5)
         .padding(.horizontal)
         .padding(.top, 8)
+        .fullScreenCover(isPresented: $shouldShowEditSheet, content: {
+            AddCardForm(card: self.card)
+        })
         
     }
 }
