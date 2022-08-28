@@ -33,6 +33,8 @@ struct MainView: View {
                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
                     .frame(height: 280)
                     .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+                } else {
+                    emptyMessagePrompt
                 }
                 
                 Spacer()
@@ -49,6 +51,26 @@ struct MainView: View {
                 trailing: addCardButton)
         }
         
+    }
+    
+    private var emptyMessagePrompt: some View {
+        VStack {
+            Text("You currently have no cards in the system.")
+                .padding(.horizontal, 48)
+                .padding(.vertical)
+                .multilineTextAlignment(.center)
+            
+            Button {
+                shouldPresentAddCardForm.toggle()
+            } label: {
+                Text("+ Add your first card")
+                    .foregroundColor(Color(.systemBackground))
+            }
+            .padding(EdgeInsets(top: 10, leading: 14, bottom: 10, trailing: 14))
+            .background(Color(.label))
+            .cornerRadius(5)
+        }
+        .font(.system(size: 22, weight: .semibold))
     }
     
     private var deleteAllButton: some View {
@@ -85,56 +107,6 @@ struct MainView: View {
         })
     }
     
-    struct CreditCardView: View {
-        var card: Card
-        
-        var body: some View {
-            VStack(alignment: .leading, spacing: 16) {
-                Text(card.name ?? "")
-                    .font(.system(size: 24, weight: .semibold))
-                
-                HStack {
-                    let imageName = card.type?.lowercased() ?? ""
-                    Image(imageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 44)
-                        .clipped()
-                    Spacer()
-                    Text("Balance: $5,000")
-                        .font(.system(size: 18, weight: .semibold))
-                }
-                
-                Text(card.number ?? "")
-                
-                Text("Credit limit $\(card.limit)")
-                
-                HStack{ Spacer() }
-            }
-            .foregroundColor(.white)
-            .padding()
-            .background(VStack { // background modifier needs a view so just use a vstack
-                if let colorData = card.color,
-                    let uiColor = UIColor.color(data: colorData),
-                    let actualColor = Color(uiColor: uiColor) {
-                        LinearGradient(colors: [
-                            actualColor.opacity(0.6),
-                            actualColor
-                        ], startPoint: .center, endPoint: .bottom)
-                    } else {
-                        Color.purple
-                    }
-            })
-            .overlay(RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.black.opacity(0.5), lineWidth: 1)
-            )
-            .cornerRadius(8)
-            .shadow(radius: 5)
-            .padding(.horizontal)
-            .padding(.top, 8)
-            
-        }
-    }
     
     var addCardButton: some View {
         Button(action: {
