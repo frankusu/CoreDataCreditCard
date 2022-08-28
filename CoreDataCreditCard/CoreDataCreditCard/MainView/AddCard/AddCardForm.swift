@@ -41,7 +41,7 @@ struct AddCardForm: View {
                     }
                     
                     
-                }, header: { Text("Card Into") })
+                }, header: { Text("Card Info") })
                 
                 Section(content: {
                     Picker("Month", selection: $month) {

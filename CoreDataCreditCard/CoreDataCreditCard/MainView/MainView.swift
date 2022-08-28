@@ -11,18 +11,29 @@ struct MainView: View {
     
     @State private var shouldPresentAddCardForm = false
     
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Card.timeStamp , ascending: true)],
+        animation: .default)
+    
+    private var cards: FetchedResults<Card>
+    
     var body: some View {
         NavigationView {
             ScrollView {
-                TabView{
-                    ForEach(0..<5) { num in
-                        CreditCardView()
-                            .padding(.bottom, 50)
+                
+                if !cards.isEmpty {
+                    TabView{
+                        ForEach(cards) { card in
+                            CreditCardView()
+                                .padding(.bottom, 50)
+                        }
                     }
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
+                    .frame(height: 280)
+                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                .frame(height: 280)
-                .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                 
                 Spacer()
                     .fullScreenCover(isPresented: $shouldPresentAddCardForm, onDismiss: nil, content: {
@@ -30,8 +41,48 @@ struct MainView: View {
                     })
             }
             .navigationTitle("Credit Cards")
-            .navigationBarItems(trailing: addCardButton)
+            .navigationBarItems(leading:
+                HStack {
+                    addItemButton
+                    deleteAllButton
+                },
+                trailing: addCardButton)
         }
+        
+    }
+    
+    private var deleteAllButton: some View {
+        Button(action: {
+            cards.forEach { card in
+                viewContext.delete(card)
+                
+                do {
+                    try viewContext.save()
+                } catch {
+                    //error stuff
+                }
+            }
+        }, label: {
+            Text("Delete All")
+        })
+    }
+    
+    private var addItemButton: some View {
+        Button(action: {
+            withAnimation {
+//                let viewContext = PersistenceController.shared.container.viewContext
+                let card = Card(context: viewContext)
+                card.timeStamp = Date()
+                
+                do {
+                    try viewContext.save()
+                } catch {
+                    //error handling
+                }
+            }
+        }, label: {
+            Text("Add Item")
+        })
     }
     
     struct CreditCardView: View {
