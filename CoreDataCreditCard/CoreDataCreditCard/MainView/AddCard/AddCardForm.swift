@@ -10,6 +10,7 @@ import SwiftUI
 struct AddCardForm: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var viewContext
     
     @State private var name = ""
     @State private var cardNumber = ""
@@ -67,12 +68,41 @@ struct AddCardForm: View {
                 
             }
                 .navigationTitle("Add Credit Card")
-                .navigationBarItems(leading: Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Cancel")
-                }))
+                .navigationBarItems(leading: cancelButton, trailing: saveButton)
         }
+    }
+    
+    private var saveButton: some View {
+        Button(action: {
+            let card = Card(context: viewContext)
+            
+            card.name = self.name
+            card.number = self.cardNumber
+            card.limit = Int32(self.limit) ?? 0
+            card.expMonth = Int16(self.month)
+            card.expYear = Int16(self.year)
+            card.timeStamp = Date()
+            card.color = UIColor(self.color).encode()
+            card.type = cardType
+            
+            do {
+                try viewContext.save()
+                
+                presentationMode.wrappedValue.dismiss()
+            } catch {
+                print("Failed to persist new card \(error)")
+            }
+        }, label: {
+            Text("Save")
+        })
+    }
+    
+    private var cancelButton: some View {
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }, label: {
+            Text("Cancel")
+        })
     }
 }
 

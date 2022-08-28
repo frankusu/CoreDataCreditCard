@@ -15,6 +15,7 @@
 		2070239228B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2070239028B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld */; };
 		2070239928B9F42E002B03BD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070239828B9F42E002B03BD /* MainView.swift */; };
 		2070239F28BABB2D002B03BD /* AddCardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070239E28BABB2D002B03BD /* AddCardForm.swift */; };
+		207023A628BB4456002B03BD /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207023A528BB4456002B03BD /* UIColor+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		2070239128B9F267002B03BD /* CoreDataCreditCard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCreditCard.xcdatamodel; sourceTree = "<group>"; };
 		2070239828B9F42E002B03BD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2070239E28BABB2D002B03BD /* AddCardForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardForm.swift; sourceTree = "<group>"; };
+		207023A528BB4456002B03BD /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		2070239C28BABB0A002B03BD /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				207023A428BB4439002B03BD /* Extensions */,
 				2070239D28BABB1C002B03BD /* AddCard */,
 				2070239828B9F42E002B03BD /* MainView.swift */,
 			);
@@ -93,6 +96,14 @@
 				2070239E28BABB2D002B03BD /* AddCardForm.swift */,
 			);
 			path = AddCard;
+			sourceTree = "<group>";
+		};
+		207023A428BB4439002B03BD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				207023A528BB4456002B03BD /* UIColor+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2070238F28B9F267002B03BD /* Persistence.swift in Sources */,
+				207023A628BB4456002B03BD /* UIColor+Ext.swift in Sources */,
 				2070239F28BABB2D002B03BD /* AddCardForm.swift in Sources */,
 				2070238828B9F265002B03BD /* ContentView.swift in Sources */,
 				2070238628B9F265002B03BD /* CoreDataCreditCardApp.swift in Sources */,
