@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2064BF0628BC8E89002EEDA3 /* AddTransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */; };
 		2070238628B9F265002B03BD /* CoreDataCreditCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070238528B9F265002B03BD /* CoreDataCreditCardApp.swift */; };
 		2070238828B9F265002B03BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070238728B9F265002B03BD /* ContentView.swift */; };
 		2070238A28B9F267002B03BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2070238928B9F267002B03BD /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionForm.swift; sourceTree = "<group>"; };
 		2070238228B9F265002B03BD /* CoreDataCreditCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataCreditCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2070238528B9F265002B03BD /* CoreDataCreditCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCreditCardApp.swift; sourceTree = "<group>"; };
 		2070238728B9F265002B03BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2064BF0428BC8E71002EEDA3 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
 		2070237928B9F265002B03BD = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +95,7 @@
 		2070239C28BABB0A002B03BD /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				2064BF0428BC8E71002EEDA3 /* Transaction */,
 				207023A428BB4439002B03BD /* Extensions */,
 				2070239D28BABB1C002B03BD /* AddCard */,
 				2070239828B9F42E002B03BD /* MainView.swift */,
@@ -183,6 +194,7 @@
 				207023A628BB4456002B03BD /* UIColor+Ext.swift in Sources */,
 				2070239F28BABB2D002B03BD /* AddCardForm.swift in Sources */,
 				2070238828B9F265002B03BD /* ContentView.swift in Sources */,
+				2064BF0628BC8E89002EEDA3 /* AddTransactionForm.swift in Sources */,
 				2070238628B9F265002B03BD /* CoreDataCreditCardApp.swift in Sources */,
 				2070239928B9F42E002B03BD /* MainView.swift in Sources */,
 				2070239228B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld in Sources */,
