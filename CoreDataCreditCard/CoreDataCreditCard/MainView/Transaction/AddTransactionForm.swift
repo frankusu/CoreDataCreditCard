@@ -11,9 +11,13 @@ struct AddTransactionForm: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    
+    @State private var photoData: Data?
     @State private var name = ""
     @State private var amount = ""
     @State private var date = Date()
+    
+    @State private var shouldPresentPhotoPicker = false
     var body: some View {
         NavigationView {
             Form {
@@ -29,13 +33,23 @@ struct AddTransactionForm: View {
                 
                 Section(content: {
                     Button {
-                        
+                        shouldPresentPhotoPicker.toggle()
                     } label: {
                         Text("Select Photo")
                     }
+                    .fullScreenCover(isPresented: $shouldPresentPhotoPicker, content: {
+                        PhotoPickerView(photoData: $photoData)
+                    })
                 }, header: {
                     Text("Photo/Receipt")
                 })
+                
+                if let photoData = photoData, let image = UIImage(data: photoData) {
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                }
+                
                 
             }
             .navigationTitle("Add transaction")
