@@ -104,7 +104,7 @@ struct AddCardForm: View {
             card.limit = Int32(self.limit) ?? 0
             card.expMonth = Int16(self.month)
             card.expYear = Int16(self.year)
-            card.timeStamp = Date()
+            card.timestamp = Date()
             card.color = UIColor(self.color).encode()
             card.type = cardType
             

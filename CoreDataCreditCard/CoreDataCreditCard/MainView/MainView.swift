@@ -15,10 +15,14 @@ struct MainView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Card.timeStamp , ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Card.timestamp , ascending: true)],
         animation: .default)
-    
     private var cards: FetchedResults<Card>
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \CardTransaction.timestamp, ascending: true)],
+        animation: .default)
+    private var transactions: FetchedResults<CardTransaction>
     
     var body: some View {
         NavigationView {
@@ -50,6 +54,46 @@ struct MainView: View {
                     .fullScreenCover(isPresented: $shouldShowAddTransactionForm, content: {
                         AddTransactionForm()
                     })
+                    
+                    ForEach(transactions) { transaction in
+                        VStack {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(transaction.name ?? "")
+                                        .font(.headline)
+                                    if let date = transaction.timestamp {
+                                        Text(dateFormatter.string(from: date))
+                                    }
+                                }
+                                Spacer()
+                                
+                                VStack(alignment: .trailing) {
+                                    Button {
+                                        
+                                    } label: {
+                                        Image(systemName: "ellipsis")
+                                            .font(.system(size: 24))
+                                    }
+                                    .padding(EdgeInsets(top: 6, leading: 8, bottom: 4, trailing: 0))
+                                    
+                                    Text(String(format: "$%.2f", transaction.amount ))
+                                }
+                            }
+                            
+                            if let photoData = transaction.photoData, let uiImage = UIImage(data: photoData) {
+                                Image(uiImage: uiImage)
+                                    .resizable()
+                                    .scaledToFit()
+                            }
+                            
+                        }
+                        .foregroundColor(Color(.label))
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(5)
+                        .shadow(radius: 5)
+                        .padding()
+                    }
                 } else {
                     emptyMessagePrompt
                 }
@@ -69,6 +113,13 @@ struct MainView: View {
         }
         
     }
+    
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none // TODO: what if I comment this out ?
+        return formatter
+    }()
     
     private var emptyMessagePrompt: some View {
         VStack {
@@ -111,7 +162,7 @@ struct MainView: View {
             withAnimation {
 //                let viewContext = PersistenceController.shared.container.viewContext
                 let card = Card(context: viewContext)
-                card.timeStamp = Date()
+                card.timestamp = Date()
                 
                 do {
                     try viewContext.save()

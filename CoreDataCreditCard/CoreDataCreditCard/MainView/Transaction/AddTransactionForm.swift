@@ -10,6 +10,7 @@ import SwiftUI
 struct AddTransactionForm: View {
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.managedObjectContext) var viewContext
     
     
     @State private var photoData: Data?
@@ -69,6 +70,18 @@ struct AddTransactionForm: View {
     
     private var saveButton: some View {
         Button {
+            let transaction = CardTransaction(context: viewContext)
+            transaction.name = self.name
+            transaction.timestamp = self.date
+            transaction.amount = Float(self.amount) ?? 0
+            transaction.photoData = self.photoData
+            
+            do {
+                try viewContext.save()
+                presentationMode.wrappedValue.dismiss()
+            } catch let customError {
+                print("Failed to save transaction: \(customError)")
+            }
             
         } label: {
             Text("Save")
