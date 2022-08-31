@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2064BF0628BC8E89002EEDA3 /* AddTransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */; };
 		2064BF0928BE7EE0002EEDA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF0828BE7EE0002EEDA3 /* PhotoPickerView.swift */; };
+		2064BF2128BEDEF4002EEDA3 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF2028BEDEF4002EEDA3 /* TransactionListView.swift */; };
+		2064BF2328BEE0E4002EEDA3 /* CardTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF2228BEE0E4002EEDA3 /* CardTransactionView.swift */; };
 		2070238628B9F265002B03BD /* CoreDataCreditCardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070238528B9F265002B03BD /* CoreDataCreditCardApp.swift */; };
 		2070238828B9F265002B03BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2070238728B9F265002B03BD /* ContentView.swift */; };
 		2070238A28B9F267002B03BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2070238928B9F267002B03BD /* Assets.xcassets */; };
@@ -24,6 +26,8 @@
 /* Begin PBXFileReference section */
 		2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionForm.swift; sourceTree = "<group>"; };
 		2064BF0828BE7EE0002EEDA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
+		2064BF2028BEDEF4002EEDA3 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
+		2064BF2228BEE0E4002EEDA3 /* CardTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTransactionView.swift; sourceTree = "<group>"; };
 		2070238228B9F265002B03BD /* CoreDataCreditCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataCreditCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2070238528B9F265002B03BD /* CoreDataCreditCardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCreditCardApp.swift; sourceTree = "<group>"; };
 		2070238728B9F265002B03BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */,
+				2064BF2028BEDEF4002EEDA3 /* TransactionListView.swift */,
+				2064BF2228BEE0E4002EEDA3 /* CardTransactionView.swift */,
 			);
 			path = Transaction;
 			sourceTree = "<group>";
@@ -204,11 +210,13 @@
 				2070238F28B9F267002B03BD /* Persistence.swift in Sources */,
 				207023A628BB4456002B03BD /* UIColor+Ext.swift in Sources */,
 				2070239F28BABB2D002B03BD /* AddCardForm.swift in Sources */,
+				2064BF2328BEE0E4002EEDA3 /* CardTransactionView.swift in Sources */,
 				2064BF0928BE7EE0002EEDA3 /* PhotoPickerView.swift in Sources */,
 				2070238828B9F265002B03BD /* ContentView.swift in Sources */,
 				2064BF0628BC8E89002EEDA3 /* AddTransactionForm.swift in Sources */,
 				2070238628B9F265002B03BD /* CoreDataCreditCardApp.swift in Sources */,
 				2070239928B9F42E002B03BD /* MainView.swift in Sources */,
+				2064BF2128BEDEF4002EEDA3 /* TransactionListView.swift in Sources */,
 				2070239228B9F267002B03BD /* CoreDataCreditCard.xcdatamodeld in Sources */,
 				207023A828BB55E2002B03BD /* CreditCardView.swift in Sources */,
 			);

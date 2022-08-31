@@ -25,6 +25,7 @@ struct AddTransactionForm: View {
                 Section(content: {
                     TextField("Name", text: $name)
                     TextField("Amount", text: $amount)
+                        .keyboardType(.numberPad)
                     DatePicker("Date", selection: $date, displayedComponents: .date)
                     NavigationLink("Many to Many", destination: {
                         Text("Many").navigationTitle(Text("New Title"))
