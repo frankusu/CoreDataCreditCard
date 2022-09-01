@@ -43,6 +43,7 @@ struct CreditCardView: View {
                 .confirmationDialog("dodododo", isPresented: $shouldShowActionSheet, actions: {
                     Button(role: .none, action: { shouldShowEditSheet.toggle()}, label: { Text("Edit")})
                     Button(role: .destructive ,action: { handleDelete() }, label: {
+                        //TODO: deleting last card in list crashes the app
                         Text("Delete Card")
                     })
                 }, message: {
