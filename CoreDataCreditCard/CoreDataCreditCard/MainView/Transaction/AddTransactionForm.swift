@@ -28,11 +28,16 @@ struct AddTransactionForm: View {
                     TextField("Amount", text: $amount)
                         .keyboardType(.numberPad)
                     DatePicker("Date", selection: $date, displayedComponents: .date)
-                    NavigationLink("Many to Many", destination: {
-                        Text("Many").navigationTitle(Text("New Title"))
-                    })
                 }, header: { Text("Information")})
                 
+                
+                Section(content: {
+                    NavigationLink(destination: {
+                        CategoriesListView().navigationTitle("Categories")
+                                                .environment(\.managedObjectContext, viewContext)
+                    }, label: { Text("Select categories") })
+                    
+                }, header: { Text("Categories") })
                 
                 Section(content: {
                     Button {

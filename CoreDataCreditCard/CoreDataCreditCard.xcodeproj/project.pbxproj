@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		204D6D3228C079DD00CCEEF1 /* UIImage+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D6D3128C079DD00CCEEF1 /* UIImage+Ext.swift */; };
+		204D6D3528C0897B00CCEEF1 /* CategoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204D6D3428C0897B00CCEEF1 /* CategoriesListView.swift */; };
 		2064BF0628BC8E89002EEDA3 /* AddTransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */; };
 		2064BF0928BE7EE0002EEDA3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF0828BE7EE0002EEDA3 /* PhotoPickerView.swift */; };
 		2064BF2128BEDEF4002EEDA3 /* TransactionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2064BF2028BEDEF4002EEDA3 /* TransactionListView.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		204D6D3128C079DD00CCEEF1 /* UIImage+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ext.swift"; sourceTree = "<group>"; };
+		204D6D3428C0897B00CCEEF1 /* CategoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesListView.swift; sourceTree = "<group>"; };
 		2064BF0528BC8E89002EEDA3 /* AddTransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionForm.swift; sourceTree = "<group>"; };
 		2064BF0828BE7EE0002EEDA3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		2064BF2028BEDEF4002EEDA3 /* TransactionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionListView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		204D6D3328C0895E00CCEEF1 /* CategoriesListView */ = {
+			isa = PBXGroup;
+			children = (
+				204D6D3428C0897B00CCEEF1 /* CategoriesListView.swift */,
+			);
+			path = CategoriesListView;
+			sourceTree = "<group>";
+		};
 		2064BF0428BC8E71002EEDA3 /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +123,7 @@
 		2070239C28BABB0A002B03BD /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				204D6D3328C0895E00CCEEF1 /* CategoriesListView */,
 				2064BF0728BE7ECB002EEDA3 /* PhotoPickerView */,
 				2064BF0428BC8E71002EEDA3 /* Transaction */,
 				207023A428BB4439002B03BD /* Extensions */,
@@ -214,6 +225,7 @@
 				207023A628BB4456002B03BD /* UIColor+Ext.swift in Sources */,
 				2070239F28BABB2D002B03BD /* AddCardForm.swift in Sources */,
 				2064BF2328BEE0E4002EEDA3 /* CardTransactionView.swift in Sources */,
+				204D6D3528C0897B00CCEEF1 /* CategoriesListView.swift in Sources */,
 				2064BF0928BE7EE0002EEDA3 /* PhotoPickerView.swift in Sources */,
 				2070238828B9F265002B03BD /* ContentView.swift in Sources */,
 				204D6D3228C079DD00CCEEF1 /* UIImage+Ext.swift in Sources */,
