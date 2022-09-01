@@ -12,10 +12,15 @@ struct TransactionListView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State private var shouldShowAddTransactionForm = false
     
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \CardTransaction.timestamp, ascending: true)],
-        animation: .default)
-    private var transactions: FetchedResults<CardTransaction>
+    let card: Card
+    var fetchRequest: FetchRequest<CardTransaction>
+    
+    init(card: Card) {
+        self.card = card
+        
+        fetchRequest = FetchRequest<CardTransaction>(entity: CardTransaction.entity(), sortDescriptors: [.init(key: "timestamp", ascending: false)],
+            predicate: .init(format: "card == %@", self.card))
+    }
     
     var body: some View {
         VStack {
@@ -32,10 +37,10 @@ struct TransactionListView: View {
                     .cornerRadius(5)
             }
             .fullScreenCover(isPresented: $shouldShowAddTransactionForm, content: {
-                AddTransactionForm()
+                AddTransactionForm(card: card)
             })
             
-            ForEach(transactions) { transaction in
+            ForEach(fetchRequest.wrappedValue) { transaction in
                 CardTransactionView(transaction: transaction)
             }
         }
@@ -43,12 +48,22 @@ struct TransactionListView: View {
 }
 
 struct TransactionListView_Previews: PreviewProvider {
+    static let firstCard: Card? = {
+        let context = PersistenceController.shared.container.viewContext
+        let request = Card.fetchRequest()
+        request.sortDescriptors = [.init(key: "timestamp", ascending: false)]
+        return try? context.fetch(request).first
+    }()
+    
     static var previews: some View {
         let context = PersistenceController.shared.container.viewContext
         ScrollView {
-            TransactionListView()
+            if let card = firstCard {
+                TransactionListView(card: card)
+            }
+            
         }
-        .environment(\.managedObjectContext, context)
         
+            .environment(\.managedObjectContext, context)
     }
 }

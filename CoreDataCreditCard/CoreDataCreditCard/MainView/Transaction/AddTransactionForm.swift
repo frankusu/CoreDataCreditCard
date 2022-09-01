@@ -12,6 +12,7 @@ struct AddTransactionForm: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.managedObjectContext) var viewContext
     
+    let card: Card
     
     @State private var photoData: Data?
     @State private var name = ""
@@ -76,6 +77,8 @@ struct AddTransactionForm: View {
             transaction.timestamp = self.date
             transaction.amount = Float(self.amount) ?? 0
             transaction.photoData = self.photoData
+            
+            transaction.card = self.card
             
             do {
                 try viewContext.save()
