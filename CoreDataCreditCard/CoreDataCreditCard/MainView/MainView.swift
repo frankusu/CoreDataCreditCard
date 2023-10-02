@@ -37,10 +37,10 @@ struct MainView: View {
                     .frame(height: 280)
                     .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     
-                    if let selectedCard = cards[cardSelectionIndex] {
-                        Text(selectedCard.name ?? "")
-                        TransactionListView(card: selectedCard)
-                    }
+                    let selectedCard = cards[cardSelectionIndex]
+                    Text(selectedCard.name ?? "")
+                    TransactionListView(card: selectedCard)
+                    
                 } else {
                     emptyMessagePrompt
                 }

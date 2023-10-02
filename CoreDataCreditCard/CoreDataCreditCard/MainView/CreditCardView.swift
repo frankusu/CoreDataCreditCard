@@ -75,8 +75,9 @@ struct CreditCardView: View {
         .padding()
         .background(VStack { // background modifier needs a view so just use a vstack
             if let colorData = card.color,
-               let uiColor = UIColor.color(data: colorData),
-               let actualColor = Color(uiColor: uiColor) {
+               let uiColor = UIColor.color(data: colorData)
+            {
+                let actualColor = Color(uiColor: uiColor)
                 LinearGradient(colors: [
                     actualColor.opacity(0.6),
                     actualColor
